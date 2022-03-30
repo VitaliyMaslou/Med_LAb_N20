@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="41c5a271509842b5a8dfa25c1f79563d" Name="Diagram1">
+        <EntityTypeShape EntityType="Met_Lab_N20Model.admin" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.analizator_data" Width="1.5" PointX="0.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Buhgalter" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Buhgalter_company" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Buhgalter_order" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Lab_Serveces" Width="1.5" PointX="0.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Laborant_Data" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Laborant_Data_Orders" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Orders" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Pat_Serv" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Patient_Data" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.SaveCompanyData" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Serv_order" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Met_Lab_N20Model.Servicesout" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Serviceso__anali__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Buhgalter__Buhga__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Buhgalter__Buhga__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Buhgalter__Order__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Buhgalter__SaveC__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Buhgalter__Order__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Buhgalter__SaveC__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Pat_Serv__Lab_Se__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Serviceso__Lab_S__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Laborant___Labor__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Serviceso__Labor__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Laborant___Order__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Orders__Patient___52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Serv_orde__Order__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="Met_Lab_N20Model.FK__Serv_orde__Servi__5FB337D6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

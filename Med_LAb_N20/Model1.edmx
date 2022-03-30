@@ -1,0 +1,1051 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Met_Lab_N20Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="90" />
+          <Property Name="password" Type="nvarchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="analizator_data">
+          <Key>
+            <PropertyRef Name="analizator_data_id" />
+          </Key>
+          <Property Name="analizator_data_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="datework" Type="date" />
+          <Property Name="timework" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Buhgalter">
+          <Key>
+            <PropertyRef Name="Buhgalter_id" />
+          </Key>
+          <Property Name="Buhgalter_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="90" />
+          <Property Name="password" Type="nvarchar" MaxLength="90" />
+          <Property Name="fio" Type="nvarchar" MaxLength="90" />
+          <Property Name="dateprihod" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Buhgalter_company">
+          <Key>
+            <PropertyRef Name="Buhgalter_company_id" />
+          </Key>
+          <Property Name="Buhgalter_company_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Buhgalter_id" Type="int" />
+          <Property Name="Orders_id" Type="int" />
+          <Property Name="SaveCompanyData_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Buhgalter_order">
+          <Key>
+            <PropertyRef Name="Buhgalter_order_id" />
+          </Key>
+          <Property Name="Buhgalter_order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Buhgalter_id" Type="int" />
+          <Property Name="Orders_id" Type="int" />
+          <Property Name="SaveCompanyData_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Lab_Serveces">
+          <Key>
+            <PropertyRef Name="Lab_Serveces_id" />
+          </Key>
+          <Property Name="Lab_Serveces_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="90" />
+          <Property Name="price" Type="money" />
+          <Property Name="Period" Type="int" />
+          <Property Name="Average_deviation" Type="int" />
+        </EntityType>
+        <EntityType Name="Laborant_Data">
+          <Key>
+            <PropertyRef Name="Laborant_Data_id" />
+          </Key>
+          <Property Name="Laborant_Data_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="90" />
+          <Property Name="password" Type="nvarchar" MaxLength="90" />
+          <Property Name="fio" Type="nvarchar" MaxLength="90" />
+          <Property Name="dateprihod" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Laborant_Data_Orders">
+          <Key>
+            <PropertyRef Name="Laborant_Data_Orders_id" />
+          </Key>
+          <Property Name="Laborant_Data_Orders_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Laborant_Data_id" Type="int" />
+          <Property Name="Orders_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Orders_id" />
+          </Key>
+          <Property Name="Orders_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="Patient_Data_id" Type="int" />
+          <Property Name="status_order" Type="nvarchar" MaxLength="90" />
+          <Property Name="status_serv" Type="nvarchar" MaxLength="90" />
+          <Property Name="period" Type="int" />
+        </EntityType>
+        <EntityType Name="Pat_Serv">
+          <Key>
+            <PropertyRef Name="Pat_Serv_id" />
+          </Key>
+          <Property Name="Pat_Serv_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lab_Serveces_id" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="90" />
+          <Property Name="address" Type="nvarchar" MaxLength="90" />
+          <Property Name="INN" Type="nvarchar" MaxLength="90" />
+          <Property Name="R_S" Type="nvarchar" MaxLength="90" />
+          <Property Name="BIK" Type="nvarchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="Patient_Data">
+          <Key>
+            <PropertyRef Name="Patient_Data_id" />
+          </Key>
+          <Property Name="Patient_Data_id" Type="int" Nullable="false" />
+          <Property Name="fio" Type="nvarchar" MaxLength="90" />
+          <Property Name="login" Type="nvarchar" MaxLength="90" />
+          <Property Name="password" Type="nvarchar" MaxLength="90" />
+          <Property Name="guid" Type="nvarchar" MaxLength="90" />
+          <Property Name="email" Type="nvarchar" MaxLength="90" />
+          <Property Name="social_sec_number" Type="nvarchar" MaxLength="90" />
+          <Property Name="ein" Type="nvarchar" MaxLength="90" />
+          <Property Name="social_type" Type="nvarchar" MaxLength="90" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="90" />
+          <Property Name="series" Type="int" />
+          <Property Name="number" Type="int" />
+          <Property Name="Birthday" Type="nvarchar" MaxLength="90" />
+          <Property Name="country" Type="nvarchar" MaxLength="90" />
+          <Property Name="insurance_name" Type="nvarchar" MaxLength="90" />
+          <Property Name="insurance_address" Type="nvarchar" MaxLength="90" />
+          <Property Name="insurance_inn" Type="nvarchar" MaxLength="90" />
+          <Property Name="ipadress" Type="nvarchar" MaxLength="90" />
+          <Property Name="insurance_pc" Type="nvarchar" MaxLength="90" />
+          <Property Name="insurance_bik" Type="nvarchar" MaxLength="90" />
+          <Property Name="ua" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SaveCompanyData">
+          <Key>
+            <PropertyRef Name="SaveCompanyData_id" />
+          </Key>
+          <Property Name="SaveCompanyData_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="90" />
+          <Property Name="address" Type="nvarchar" MaxLength="90" />
+          <Property Name="INN" Type="nvarchar" MaxLength="90" />
+          <Property Name="R_S" Type="nvarchar" MaxLength="90" />
+          <Property Name="BIK" Type="nvarchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="Serv_order">
+          <Key>
+            <PropertyRef Name="Serv_order_id" />
+          </Key>
+          <Property Name="Serv_order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Servicesout_id" Type="int" />
+          <Property Name="Orders_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Servicesout">
+          <Key>
+            <PropertyRef Name="Servicesout_id" />
+          </Key>
+          <Property Name="Servicesout_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lab_Serveces_id" Type="int" />
+          <Property Name="Laborant_Data_id" Type="int" />
+          <Property Name="analizator_data_id" Type="int" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <Association Name="FK__Buhgalter__Buhga__656C112C">
+          <End Role="Buhgalter" Type="Self.Buhgalter" Multiplicity="0..1" />
+          <End Role="Buhgalter_order" Type="Self.Buhgalter_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buhgalter">
+              <PropertyRef Name="Buhgalter_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_order">
+              <PropertyRef Name="Buhgalter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__Buhga__6A30C649">
+          <End Role="Buhgalter" Type="Self.Buhgalter" Multiplicity="0..1" />
+          <End Role="Buhgalter_company" Type="Self.Buhgalter_company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buhgalter">
+              <PropertyRef Name="Buhgalter_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_company">
+              <PropertyRef Name="Buhgalter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__Order__66603565">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Buhgalter_order" Type="Self.Buhgalter_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Orders_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_order">
+              <PropertyRef Name="Orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__Order__6B24EA82">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Buhgalter_company" Type="Self.Buhgalter_company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Orders_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_company">
+              <PropertyRef Name="Orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__SaveC__6754599E">
+          <End Role="SaveCompanyData" Type="Self.SaveCompanyData" Multiplicity="0..1" />
+          <End Role="Buhgalter_order" Type="Self.Buhgalter_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaveCompanyData">
+              <PropertyRef Name="SaveCompanyData_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_order">
+              <PropertyRef Name="SaveCompanyData_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__SaveC__6C190EBB">
+          <End Role="SaveCompanyData" Type="Self.SaveCompanyData" Multiplicity="0..1" />
+          <End Role="Buhgalter_company" Type="Self.Buhgalter_company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaveCompanyData">
+              <PropertyRef Name="SaveCompanyData_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_company">
+              <PropertyRef Name="SaveCompanyData_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Laborant___Labor__5535A963">
+          <End Role="Laborant_Data" Type="Self.Laborant_Data" Multiplicity="0..1" />
+          <End Role="Laborant_Data_Orders" Type="Self.Laborant_Data_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laborant_Data">
+              <PropertyRef Name="Laborant_Data_id" />
+            </Principal>
+            <Dependent Role="Laborant_Data_Orders">
+              <PropertyRef Name="Laborant_Data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Laborant___Order__5629CD9C">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Laborant_Data_Orders" Type="Self.Laborant_Data_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Orders_id" />
+            </Principal>
+            <Dependent Role="Laborant_Data_Orders">
+              <PropertyRef Name="Orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Patient___52593CB8">
+          <End Role="Patient_Data" Type="Self.Patient_Data" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Data">
+              <PropertyRef Name="Patient_Data_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Patient_Data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pat_Serv__Lab_Se__4BAC3F29">
+          <End Role="Lab_Serveces" Type="Self.Lab_Serveces" Multiplicity="0..1" />
+          <End Role="Pat_Serv" Type="Self.Pat_Serv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lab_Serveces">
+              <PropertyRef Name="Lab_Serveces_id" />
+            </Principal>
+            <Dependent Role="Pat_Serv">
+              <PropertyRef Name="Lab_Serveces_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serv_orde__Order__60A75C0F">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Serv_order" Type="Self.Serv_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Orders_id" />
+            </Principal>
+            <Dependent Role="Serv_order">
+              <PropertyRef Name="Orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serv_orde__Servi__5FB337D6">
+          <End Role="Servicesout" Type="Self.Servicesout" Multiplicity="0..1" />
+          <End Role="Serv_order" Type="Self.Serv_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicesout">
+              <PropertyRef Name="Servicesout_id" />
+            </Principal>
+            <Dependent Role="Serv_order">
+              <PropertyRef Name="Servicesout_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serviceso__anali__5CD6CB2B">
+          <End Role="analizator_data" Type="Self.analizator_data" Multiplicity="0..1" />
+          <End Role="Servicesout" Type="Self.Servicesout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="analizator_data">
+              <PropertyRef Name="analizator_data_id" />
+            </Principal>
+            <Dependent Role="Servicesout">
+              <PropertyRef Name="analizator_data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serviceso__Lab_S__5AEE82B9">
+          <End Role="Lab_Serveces" Type="Self.Lab_Serveces" Multiplicity="0..1" />
+          <End Role="Servicesout" Type="Self.Servicesout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lab_Serveces">
+              <PropertyRef Name="Lab_Serveces_id" />
+            </Principal>
+            <Dependent Role="Servicesout">
+              <PropertyRef Name="Lab_Serveces_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serviceso__Labor__5BE2A6F2">
+          <End Role="Laborant_Data" Type="Self.Laborant_Data" Multiplicity="0..1" />
+          <End Role="Servicesout" Type="Self.Servicesout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laborant_Data">
+              <PropertyRef Name="Laborant_Data_id" />
+            </Principal>
+            <Dependent Role="Servicesout">
+              <PropertyRef Name="Laborant_Data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Met_Lab_N20ModelContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="analizator_data" EntityType="Self.analizator_data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buhgalter" EntityType="Self.Buhgalter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buhgalter_company" EntityType="Self.Buhgalter_company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buhgalter_order" EntityType="Self.Buhgalter_order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lab_Serveces" EntityType="Self.Lab_Serveces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Laborant_Data" EntityType="Self.Laborant_Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Laborant_Data_Orders" EntityType="Self.Laborant_Data_Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pat_Serv" EntityType="Self.Pat_Serv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Data" EntityType="Self.Patient_Data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaveCompanyData" EntityType="Self.SaveCompanyData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Serv_order" EntityType="Self.Serv_order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicesout" EntityType="Self.Servicesout" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Buhgalter__Buhga__656C112C" Association="Self.FK__Buhgalter__Buhga__656C112C">
+            <End Role="Buhgalter" EntitySet="Buhgalter" />
+            <End Role="Buhgalter_order" EntitySet="Buhgalter_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__Buhga__6A30C649" Association="Self.FK__Buhgalter__Buhga__6A30C649">
+            <End Role="Buhgalter" EntitySet="Buhgalter" />
+            <End Role="Buhgalter_company" EntitySet="Buhgalter_company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__Order__66603565" Association="Self.FK__Buhgalter__Order__66603565">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Buhgalter_order" EntitySet="Buhgalter_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__Order__6B24EA82" Association="Self.FK__Buhgalter__Order__6B24EA82">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Buhgalter_company" EntitySet="Buhgalter_company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__SaveC__6754599E" Association="Self.FK__Buhgalter__SaveC__6754599E">
+            <End Role="SaveCompanyData" EntitySet="SaveCompanyData" />
+            <End Role="Buhgalter_order" EntitySet="Buhgalter_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__SaveC__6C190EBB" Association="Self.FK__Buhgalter__SaveC__6C190EBB">
+            <End Role="SaveCompanyData" EntitySet="SaveCompanyData" />
+            <End Role="Buhgalter_company" EntitySet="Buhgalter_company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Laborant___Labor__5535A963" Association="Self.FK__Laborant___Labor__5535A963">
+            <End Role="Laborant_Data" EntitySet="Laborant_Data" />
+            <End Role="Laborant_Data_Orders" EntitySet="Laborant_Data_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Laborant___Order__5629CD9C" Association="Self.FK__Laborant___Order__5629CD9C">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Laborant_Data_Orders" EntitySet="Laborant_Data_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Patient___52593CB8" Association="Self.FK__Orders__Patient___52593CB8">
+            <End Role="Patient_Data" EntitySet="Patient_Data" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pat_Serv__Lab_Se__4BAC3F29" Association="Self.FK__Pat_Serv__Lab_Se__4BAC3F29">
+            <End Role="Lab_Serveces" EntitySet="Lab_Serveces" />
+            <End Role="Pat_Serv" EntitySet="Pat_Serv" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serv_orde__Order__60A75C0F" Association="Self.FK__Serv_orde__Order__60A75C0F">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Serv_order" EntitySet="Serv_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serv_orde__Servi__5FB337D6" Association="Self.FK__Serv_orde__Servi__5FB337D6">
+            <End Role="Servicesout" EntitySet="Servicesout" />
+            <End Role="Serv_order" EntitySet="Serv_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serviceso__anali__5CD6CB2B" Association="Self.FK__Serviceso__anali__5CD6CB2B">
+            <End Role="analizator_data" EntitySet="analizator_data" />
+            <End Role="Servicesout" EntitySet="Servicesout" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serviceso__Lab_S__5AEE82B9" Association="Self.FK__Serviceso__Lab_S__5AEE82B9">
+            <End Role="Lab_Serveces" EntitySet="Lab_Serveces" />
+            <End Role="Servicesout" EntitySet="Servicesout" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serviceso__Labor__5BE2A6F2" Association="Self.FK__Serviceso__Labor__5BE2A6F2">
+            <End Role="Laborant_Data" EntitySet="Laborant_Data" />
+            <End Role="Servicesout" EntitySet="Servicesout" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Met_Lab_N20Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="analizator_data">
+          <Key>
+            <PropertyRef Name="analizator_data_id" />
+          </Key>
+          <Property Name="analizator_data_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="datework" Type="DateTime" Precision="0" />
+          <Property Name="timework" Type="Time" Precision="7" />
+          <NavigationProperty Name="Servicesout" Relationship="Self.FK__Serviceso__anali__5CD6CB2B" FromRole="analizator_data" ToRole="Servicesout" />
+        </EntityType>
+        <EntityType Name="Buhgalter">
+          <Key>
+            <PropertyRef Name="Buhgalter_id" />
+          </Key>
+          <Property Name="Buhgalter_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="fio" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="dateprihod" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Buhgalter_order" Relationship="Self.FK__Buhgalter__Buhga__656C112C" FromRole="Buhgalter" ToRole="Buhgalter_order" />
+          <NavigationProperty Name="Buhgalter_company" Relationship="Self.FK__Buhgalter__Buhga__6A30C649" FromRole="Buhgalter" ToRole="Buhgalter_company" />
+        </EntityType>
+        <EntityType Name="Buhgalter_company">
+          <Key>
+            <PropertyRef Name="Buhgalter_company_id" />
+          </Key>
+          <Property Name="Buhgalter_company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Buhgalter_id" Type="Int32" />
+          <Property Name="Orders_id" Type="Int32" />
+          <Property Name="SaveCompanyData_id" Type="Int32" />
+          <NavigationProperty Name="Buhgalter" Relationship="Self.FK__Buhgalter__Buhga__6A30C649" FromRole="Buhgalter_company" ToRole="Buhgalter" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Buhgalter__Order__6B24EA82" FromRole="Buhgalter_company" ToRole="Orders" />
+          <NavigationProperty Name="SaveCompanyData" Relationship="Self.FK__Buhgalter__SaveC__6C190EBB" FromRole="Buhgalter_company" ToRole="SaveCompanyData" />
+        </EntityType>
+        <EntityType Name="Buhgalter_order">
+          <Key>
+            <PropertyRef Name="Buhgalter_order_id" />
+          </Key>
+          <Property Name="Buhgalter_order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Buhgalter_id" Type="Int32" />
+          <Property Name="Orders_id" Type="Int32" />
+          <Property Name="SaveCompanyData_id" Type="Int32" />
+          <NavigationProperty Name="Buhgalter" Relationship="Self.FK__Buhgalter__Buhga__656C112C" FromRole="Buhgalter_order" ToRole="Buhgalter" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Buhgalter__Order__66603565" FromRole="Buhgalter_order" ToRole="Orders" />
+          <NavigationProperty Name="SaveCompanyData" Relationship="Self.FK__Buhgalter__SaveC__6754599E" FromRole="Buhgalter_order" ToRole="SaveCompanyData" />
+        </EntityType>
+        <EntityType Name="Lab_Serveces">
+          <Key>
+            <PropertyRef Name="Lab_Serveces_id" />
+          </Key>
+          <Property Name="Lab_Serveces_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Period" Type="Int32" />
+          <Property Name="Average_deviation" Type="Int32" />
+          <NavigationProperty Name="Pat_Serv" Relationship="Self.FK__Pat_Serv__Lab_Se__4BAC3F29" FromRole="Lab_Serveces" ToRole="Pat_Serv" />
+          <NavigationProperty Name="Servicesout" Relationship="Self.FK__Serviceso__Lab_S__5AEE82B9" FromRole="Lab_Serveces" ToRole="Servicesout" />
+        </EntityType>
+        <EntityType Name="Laborant_Data">
+          <Key>
+            <PropertyRef Name="Laborant_Data_id" />
+          </Key>
+          <Property Name="Laborant_Data_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="fio" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="dateprihod" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Laborant_Data_Orders" Relationship="Self.FK__Laborant___Labor__5535A963" FromRole="Laborant_Data" ToRole="Laborant_Data_Orders" />
+          <NavigationProperty Name="Servicesout" Relationship="Self.FK__Serviceso__Labor__5BE2A6F2" FromRole="Laborant_Data" ToRole="Servicesout" />
+        </EntityType>
+        <EntityType Name="Laborant_Data_Orders">
+          <Key>
+            <PropertyRef Name="Laborant_Data_Orders_id" />
+          </Key>
+          <Property Name="Laborant_Data_Orders_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Laborant_Data_id" Type="Int32" />
+          <Property Name="Orders_id" Type="Int32" />
+          <NavigationProperty Name="Laborant_Data" Relationship="Self.FK__Laborant___Labor__5535A963" FromRole="Laborant_Data_Orders" ToRole="Laborant_Data" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Laborant___Order__5629CD9C" FromRole="Laborant_Data_Orders" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="Orders_id" />
+          </Key>
+          <Property Name="Orders_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="Patient_Data_id" Type="Int32" />
+          <Property Name="status_order" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="status_serv" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="period" Type="Int32" />
+          <NavigationProperty Name="Buhgalter_company" Relationship="Self.FK__Buhgalter__Order__6B24EA82" FromRole="Orders" ToRole="Buhgalter_company" />
+          <NavigationProperty Name="Buhgalter_order" Relationship="Self.FK__Buhgalter__Order__66603565" FromRole="Orders" ToRole="Buhgalter_order" />
+          <NavigationProperty Name="Laborant_Data_Orders" Relationship="Self.FK__Laborant___Order__5629CD9C" FromRole="Orders" ToRole="Laborant_Data_Orders" />
+          <NavigationProperty Name="Patient_Data" Relationship="Self.FK__Orders__Patient___52593CB8" FromRole="Orders" ToRole="Patient_Data" />
+          <NavigationProperty Name="Serv_order" Relationship="Self.FK__Serv_orde__Order__60A75C0F" FromRole="Orders" ToRole="Serv_order" />
+        </EntityType>
+        <EntityType Name="Pat_Serv">
+          <Key>
+            <PropertyRef Name="Pat_Serv_id" />
+          </Key>
+          <Property Name="Pat_Serv_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lab_Serveces_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="R_S" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="BIK" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Lab_Serveces" Relationship="Self.FK__Pat_Serv__Lab_Se__4BAC3F29" FromRole="Pat_Serv" ToRole="Lab_Serveces" />
+        </EntityType>
+        <EntityType Name="Patient_Data">
+          <Key>
+            <PropertyRef Name="Patient_Data_id" />
+          </Key>
+          <Property Name="Patient_Data_id" Type="Int32" Nullable="false" />
+          <Property Name="fio" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="login" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="guid" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="social_sec_number" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="ein" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="social_type" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="telefon" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="series" Type="Int32" />
+          <Property Name="number" Type="Int32" />
+          <Property Name="Birthday" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="insurance_name" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="insurance_address" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="insurance_inn" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="ipadress" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="insurance_pc" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="insurance_bik" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="ua" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Patient___52593CB8" FromRole="Patient_Data" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="SaveCompanyData">
+          <Key>
+            <PropertyRef Name="SaveCompanyData_id" />
+          </Key>
+          <Property Name="SaveCompanyData_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="R_S" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="BIK" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Buhgalter_company" Relationship="Self.FK__Buhgalter__SaveC__6C190EBB" FromRole="SaveCompanyData" ToRole="Buhgalter_company" />
+          <NavigationProperty Name="Buhgalter_order" Relationship="Self.FK__Buhgalter__SaveC__6754599E" FromRole="SaveCompanyData" ToRole="Buhgalter_order" />
+        </EntityType>
+        <EntityType Name="Serv_order">
+          <Key>
+            <PropertyRef Name="Serv_order_id" />
+          </Key>
+          <Property Name="Serv_order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Servicesout_id" Type="Int32" />
+          <Property Name="Orders_id" Type="Int32" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Serv_orde__Order__60A75C0F" FromRole="Serv_order" ToRole="Orders" />
+          <NavigationProperty Name="Servicesout" Relationship="Self.FK__Serv_orde__Servi__5FB337D6" FromRole="Serv_order" ToRole="Servicesout" />
+        </EntityType>
+        <EntityType Name="Servicesout">
+          <Key>
+            <PropertyRef Name="Servicesout_id" />
+          </Key>
+          <Property Name="Servicesout_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lab_Serveces_id" Type="Int32" />
+          <Property Name="Laborant_Data_id" Type="Int32" />
+          <Property Name="analizator_data_id" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="analizator_data" Relationship="Self.FK__Serviceso__anali__5CD6CB2B" FromRole="Servicesout" ToRole="analizator_data" />
+          <NavigationProperty Name="Lab_Serveces" Relationship="Self.FK__Serviceso__Lab_S__5AEE82B9" FromRole="Servicesout" ToRole="Lab_Serveces" />
+          <NavigationProperty Name="Laborant_Data" Relationship="Self.FK__Serviceso__Labor__5BE2A6F2" FromRole="Servicesout" ToRole="Laborant_Data" />
+          <NavigationProperty Name="Serv_order" Relationship="Self.FK__Serv_orde__Servi__5FB337D6" FromRole="Servicesout" ToRole="Serv_order" />
+        </EntityType>
+        <Association Name="FK__Serviceso__anali__5CD6CB2B">
+          <End Role="analizator_data" Type="Self.analizator_data" Multiplicity="0..1" />
+          <End Role="Servicesout" Type="Self.Servicesout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="analizator_data">
+              <PropertyRef Name="analizator_data_id" />
+            </Principal>
+            <Dependent Role="Servicesout">
+              <PropertyRef Name="analizator_data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__Buhga__656C112C">
+          <End Role="Buhgalter" Type="Self.Buhgalter" Multiplicity="0..1" />
+          <End Role="Buhgalter_order" Type="Self.Buhgalter_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buhgalter">
+              <PropertyRef Name="Buhgalter_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_order">
+              <PropertyRef Name="Buhgalter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__Buhga__6A30C649">
+          <End Role="Buhgalter" Type="Self.Buhgalter" Multiplicity="0..1" />
+          <End Role="Buhgalter_company" Type="Self.Buhgalter_company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buhgalter">
+              <PropertyRef Name="Buhgalter_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_company">
+              <PropertyRef Name="Buhgalter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__Order__6B24EA82">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Buhgalter_company" Type="Self.Buhgalter_company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Orders_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_company">
+              <PropertyRef Name="Orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__SaveC__6C190EBB">
+          <End Role="SaveCompanyData" Type="Self.SaveCompanyData" Multiplicity="0..1" />
+          <End Role="Buhgalter_company" Type="Self.Buhgalter_company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaveCompanyData">
+              <PropertyRef Name="SaveCompanyData_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_company">
+              <PropertyRef Name="SaveCompanyData_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__Order__66603565">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Buhgalter_order" Type="Self.Buhgalter_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Orders_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_order">
+              <PropertyRef Name="Orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buhgalter__SaveC__6754599E">
+          <End Role="SaveCompanyData" Type="Self.SaveCompanyData" Multiplicity="0..1" />
+          <End Role="Buhgalter_order" Type="Self.Buhgalter_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaveCompanyData">
+              <PropertyRef Name="SaveCompanyData_id" />
+            </Principal>
+            <Dependent Role="Buhgalter_order">
+              <PropertyRef Name="SaveCompanyData_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pat_Serv__Lab_Se__4BAC3F29">
+          <End Role="Lab_Serveces" Type="Self.Lab_Serveces" Multiplicity="0..1" />
+          <End Role="Pat_Serv" Type="Self.Pat_Serv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lab_Serveces">
+              <PropertyRef Name="Lab_Serveces_id" />
+            </Principal>
+            <Dependent Role="Pat_Serv">
+              <PropertyRef Name="Lab_Serveces_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serviceso__Lab_S__5AEE82B9">
+          <End Role="Lab_Serveces" Type="Self.Lab_Serveces" Multiplicity="0..1" />
+          <End Role="Servicesout" Type="Self.Servicesout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lab_Serveces">
+              <PropertyRef Name="Lab_Serveces_id" />
+            </Principal>
+            <Dependent Role="Servicesout">
+              <PropertyRef Name="Lab_Serveces_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Laborant___Labor__5535A963">
+          <End Role="Laborant_Data" Type="Self.Laborant_Data" Multiplicity="0..1" />
+          <End Role="Laborant_Data_Orders" Type="Self.Laborant_Data_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laborant_Data">
+              <PropertyRef Name="Laborant_Data_id" />
+            </Principal>
+            <Dependent Role="Laborant_Data_Orders">
+              <PropertyRef Name="Laborant_Data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serviceso__Labor__5BE2A6F2">
+          <End Role="Laborant_Data" Type="Self.Laborant_Data" Multiplicity="0..1" />
+          <End Role="Servicesout" Type="Self.Servicesout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laborant_Data">
+              <PropertyRef Name="Laborant_Data_id" />
+            </Principal>
+            <Dependent Role="Servicesout">
+              <PropertyRef Name="Laborant_Data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Laborant___Order__5629CD9C">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Laborant_Data_Orders" Type="Self.Laborant_Data_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Orders_id" />
+            </Principal>
+            <Dependent Role="Laborant_Data_Orders">
+              <PropertyRef Name="Orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Patient___52593CB8">
+          <End Role="Patient_Data" Type="Self.Patient_Data" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Data">
+              <PropertyRef Name="Patient_Data_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Patient_Data_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serv_orde__Order__60A75C0F">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Serv_order" Type="Self.Serv_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Orders_id" />
+            </Principal>
+            <Dependent Role="Serv_order">
+              <PropertyRef Name="Orders_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Serv_orde__Servi__5FB337D6">
+          <End Role="Servicesout" Type="Self.Servicesout" Multiplicity="0..1" />
+          <End Role="Serv_order" Type="Self.Serv_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicesout">
+              <PropertyRef Name="Servicesout_id" />
+            </Principal>
+            <Dependent Role="Serv_order">
+              <PropertyRef Name="Servicesout_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Met_Lab_N20Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin" EntityType="Self.admin" />
+          <EntitySet Name="analizator_data" EntityType="Self.analizator_data" />
+          <EntitySet Name="Buhgalter" EntityType="Self.Buhgalter" />
+          <EntitySet Name="Buhgalter_company" EntityType="Self.Buhgalter_company" />
+          <EntitySet Name="Buhgalter_order" EntityType="Self.Buhgalter_order" />
+          <EntitySet Name="Lab_Serveces" EntityType="Self.Lab_Serveces" />
+          <EntitySet Name="Laborant_Data" EntityType="Self.Laborant_Data" />
+          <EntitySet Name="Laborant_Data_Orders" EntityType="Self.Laborant_Data_Orders" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Pat_Serv" EntityType="Self.Pat_Serv" />
+          <EntitySet Name="Patient_Data" EntityType="Self.Patient_Data" />
+          <EntitySet Name="SaveCompanyData" EntityType="Self.SaveCompanyData" />
+          <EntitySet Name="Serv_order" EntityType="Self.Serv_order" />
+          <EntitySet Name="Servicesout" EntityType="Self.Servicesout" />
+          <AssociationSet Name="FK__Serviceso__anali__5CD6CB2B" Association="Self.FK__Serviceso__anali__5CD6CB2B">
+            <End Role="analizator_data" EntitySet="analizator_data" />
+            <End Role="Servicesout" EntitySet="Servicesout" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__Buhga__656C112C" Association="Self.FK__Buhgalter__Buhga__656C112C">
+            <End Role="Buhgalter" EntitySet="Buhgalter" />
+            <End Role="Buhgalter_order" EntitySet="Buhgalter_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__Buhga__6A30C649" Association="Self.FK__Buhgalter__Buhga__6A30C649">
+            <End Role="Buhgalter" EntitySet="Buhgalter" />
+            <End Role="Buhgalter_company" EntitySet="Buhgalter_company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__Order__6B24EA82" Association="Self.FK__Buhgalter__Order__6B24EA82">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Buhgalter_company" EntitySet="Buhgalter_company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__SaveC__6C190EBB" Association="Self.FK__Buhgalter__SaveC__6C190EBB">
+            <End Role="SaveCompanyData" EntitySet="SaveCompanyData" />
+            <End Role="Buhgalter_company" EntitySet="Buhgalter_company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__Order__66603565" Association="Self.FK__Buhgalter__Order__66603565">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Buhgalter_order" EntitySet="Buhgalter_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buhgalter__SaveC__6754599E" Association="Self.FK__Buhgalter__SaveC__6754599E">
+            <End Role="SaveCompanyData" EntitySet="SaveCompanyData" />
+            <End Role="Buhgalter_order" EntitySet="Buhgalter_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pat_Serv__Lab_Se__4BAC3F29" Association="Self.FK__Pat_Serv__Lab_Se__4BAC3F29">
+            <End Role="Lab_Serveces" EntitySet="Lab_Serveces" />
+            <End Role="Pat_Serv" EntitySet="Pat_Serv" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serviceso__Lab_S__5AEE82B9" Association="Self.FK__Serviceso__Lab_S__5AEE82B9">
+            <End Role="Lab_Serveces" EntitySet="Lab_Serveces" />
+            <End Role="Servicesout" EntitySet="Servicesout" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Laborant___Labor__5535A963" Association="Self.FK__Laborant___Labor__5535A963">
+            <End Role="Laborant_Data" EntitySet="Laborant_Data" />
+            <End Role="Laborant_Data_Orders" EntitySet="Laborant_Data_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serviceso__Labor__5BE2A6F2" Association="Self.FK__Serviceso__Labor__5BE2A6F2">
+            <End Role="Laborant_Data" EntitySet="Laborant_Data" />
+            <End Role="Servicesout" EntitySet="Servicesout" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Laborant___Order__5629CD9C" Association="Self.FK__Laborant___Order__5629CD9C">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Laborant_Data_Orders" EntitySet="Laborant_Data_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Patient___52593CB8" Association="Self.FK__Orders__Patient___52593CB8">
+            <End Role="Patient_Data" EntitySet="Patient_Data" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serv_orde__Order__60A75C0F" Association="Self.FK__Serv_orde__Order__60A75C0F">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Serv_order" EntitySet="Serv_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Serv_orde__Servi__5FB337D6" Association="Self.FK__Serv_orde__Servi__5FB337D6">
+            <End Role="Servicesout" EntitySet="Servicesout" />
+            <End Role="Serv_order" EntitySet="Serv_order" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Met_Lab_N20ModelContainer" CdmEntityContainer="Met_Lab_N20Entities">
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="analizator_data">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.analizator_data">
+              <MappingFragment StoreEntitySet="analizator_data">
+                <ScalarProperty Name="analizator_data_id" ColumnName="analizator_data_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="datework" ColumnName="datework" />
+                <ScalarProperty Name="timework" ColumnName="timework" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buhgalter">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Buhgalter">
+              <MappingFragment StoreEntitySet="Buhgalter">
+                <ScalarProperty Name="Buhgalter_id" ColumnName="Buhgalter_id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+                <ScalarProperty Name="dateprihod" ColumnName="dateprihod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buhgalter_company">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Buhgalter_company">
+              <MappingFragment StoreEntitySet="Buhgalter_company">
+                <ScalarProperty Name="Buhgalter_company_id" ColumnName="Buhgalter_company_id" />
+                <ScalarProperty Name="Buhgalter_id" ColumnName="Buhgalter_id" />
+                <ScalarProperty Name="Orders_id" ColumnName="Orders_id" />
+                <ScalarProperty Name="SaveCompanyData_id" ColumnName="SaveCompanyData_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buhgalter_order">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Buhgalter_order">
+              <MappingFragment StoreEntitySet="Buhgalter_order">
+                <ScalarProperty Name="Buhgalter_order_id" ColumnName="Buhgalter_order_id" />
+                <ScalarProperty Name="Buhgalter_id" ColumnName="Buhgalter_id" />
+                <ScalarProperty Name="Orders_id" ColumnName="Orders_id" />
+                <ScalarProperty Name="SaveCompanyData_id" ColumnName="SaveCompanyData_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lab_Serveces">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Lab_Serveces">
+              <MappingFragment StoreEntitySet="Lab_Serveces">
+                <ScalarProperty Name="Lab_Serveces_id" ColumnName="Lab_Serveces_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Average_deviation" ColumnName="Average_deviation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laborant_Data">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Laborant_Data">
+              <MappingFragment StoreEntitySet="Laborant_Data">
+                <ScalarProperty Name="Laborant_Data_id" ColumnName="Laborant_Data_id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+                <ScalarProperty Name="dateprihod" ColumnName="dateprihod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laborant_Data_Orders">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Laborant_Data_Orders">
+              <MappingFragment StoreEntitySet="Laborant_Data_Orders">
+                <ScalarProperty Name="Laborant_Data_Orders_id" ColumnName="Laborant_Data_Orders_id" />
+                <ScalarProperty Name="Laborant_Data_id" ColumnName="Laborant_Data_id" />
+                <ScalarProperty Name="Orders_id" ColumnName="Orders_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Orders_id" ColumnName="Orders_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Patient_Data_id" ColumnName="Patient_Data_id" />
+                <ScalarProperty Name="status_order" ColumnName="status_order" />
+                <ScalarProperty Name="status_serv" ColumnName="status_serv" />
+                <ScalarProperty Name="period" ColumnName="period" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pat_Serv">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Pat_Serv">
+              <MappingFragment StoreEntitySet="Pat_Serv">
+                <ScalarProperty Name="Pat_Serv_id" ColumnName="Pat_Serv_id" />
+                <ScalarProperty Name="Lab_Serveces_id" ColumnName="Lab_Serveces_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="R_S" ColumnName="R_S" />
+                <ScalarProperty Name="BIK" ColumnName="BIK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Data">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Patient_Data">
+              <MappingFragment StoreEntitySet="Patient_Data">
+                <ScalarProperty Name="Patient_Data_id" ColumnName="Patient_Data_id" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="guid" ColumnName="guid" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="social_sec_number" ColumnName="social_sec_number" />
+                <ScalarProperty Name="ein" ColumnName="ein" />
+                <ScalarProperty Name="social_type" ColumnName="social_type" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="series" ColumnName="series" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="insurance_name" ColumnName="insurance_name" />
+                <ScalarProperty Name="insurance_address" ColumnName="insurance_address" />
+                <ScalarProperty Name="insurance_inn" ColumnName="insurance_inn" />
+                <ScalarProperty Name="ipadress" ColumnName="ipadress" />
+                <ScalarProperty Name="insurance_pc" ColumnName="insurance_pc" />
+                <ScalarProperty Name="insurance_bik" ColumnName="insurance_bik" />
+                <ScalarProperty Name="ua" ColumnName="ua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaveCompanyData">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.SaveCompanyData">
+              <MappingFragment StoreEntitySet="SaveCompanyData">
+                <ScalarProperty Name="SaveCompanyData_id" ColumnName="SaveCompanyData_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="R_S" ColumnName="R_S" />
+                <ScalarProperty Name="BIK" ColumnName="BIK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Serv_order">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Serv_order">
+              <MappingFragment StoreEntitySet="Serv_order">
+                <ScalarProperty Name="Serv_order_id" ColumnName="Serv_order_id" />
+                <ScalarProperty Name="Servicesout_id" ColumnName="Servicesout_id" />
+                <ScalarProperty Name="Orders_id" ColumnName="Orders_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicesout">
+            <EntityTypeMapping TypeName="Met_Lab_N20Model.Servicesout">
+              <MappingFragment StoreEntitySet="Servicesout">
+                <ScalarProperty Name="Servicesout_id" ColumnName="Servicesout_id" />
+                <ScalarProperty Name="Lab_Serveces_id" ColumnName="Lab_Serveces_id" />
+                <ScalarProperty Name="Laborant_Data_id" ColumnName="Laborant_Data_id" />
+                <ScalarProperty Name="analizator_data_id" ColumnName="analizator_data_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
